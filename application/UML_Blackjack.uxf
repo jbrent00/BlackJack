@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>0</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>BlackJack Project
+--
+Classes: 
+Card, Deck, Hand, Person, 
+Player, Dealer, Main</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>100</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Card
+--
+-rank: int
+-suit: String
+--
++Card(rank: int, suit: String)
++Card(card: Card)
++getRank(): int
++setRank(rank: int): void
++getSuit(): String
++setSuit(suit: String): void
++toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>320</y>
+      <w>210</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Deck
+--
+-deck: ArrayList&lt;Card&gt;
+-suits String[]
+--
++Deck()
++Deck(numOfDecks: int, 
+shuffle: boolean)
++addCard(card: Card): void
++printDeck():void
++getCardFromDeck(): Card
++shuffleDeck(): void
++getDeck(): ArrayList&lt;Card&gt;
++getSizeOfDeck(): int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>600</x>
+      <y>330</y>
+      <w>270</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Hand
+--
+-hand: ArrayList&lt;Card&gt;
+--
++Hand()
++takeCard(deck: Deck): void
++addHandToDeck(deck: Deck): void
++removeCards(): void
++printHand(showFirstCard: boolean): void
++getCardFromHand(index: int): Card
++getSizeOfHand(): int
++calculateTotal(): int
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>580</y>
+      <w>240</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>/Person/
+--
+-name: String
+-hand: Hand
+--
+#Person()
+#Person(name: String, hand: Hand)
++setName(name: String): void
++getName(): String
++setHand(hand: Hand): void
++getHand(): Hand
++hasBlackJack(): boolean
+/+hitOrStand(deck: Deck): void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>700</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Dealer
+--
++Dealer()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>760</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>660</y>
+      <w>230</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Player
+--
++Player()
++Player(name: String)
++Player(name: String, hand: Hand)
++getDecision(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>760</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>0</y>
+      <w>290</w>
+      <h>670</h>
+    </coordinates>
+    <panel_attributes>Main
+--
+-backOfCard: ImageView
+-picturesOfCards: ImageView[]
+-winsLabel: Label
+-winsNumber: Label
+-lossesLabel: Label
+-lossesNumber: Label
+-tiesLabel: Label
+-tiesNumber: Label
+-dealerTotal: Label
+-dealerTotalNumber: Label
+-playerTotal: Label
+-playerTotalNumber: Label
+-hit: Button
+-stay: Button
+-clear: Button
+-showFirstCard: Label
+-tfShowFirstCard: TextField
+-toShuffle: Label
+-tfToShuffle: TextField
+-start: Button
+-stackPane: StackPane
+-borderPane: BorderPane
+-gridPane: GridPane
+-deck: Deck
+-player1: Player
+-dealer: Dealer
+-index: int
+-wins,losses,ties,dealerTotal,playerTotal:int
+-dealerFirstCardUp,originalValueFirstCardUp,
+playerIsDoneHitting, isShuffled: boolean
+--
++start(primaryStage: Stage): void
++main(args: String[]): void
+-startTheGame(): void
++updatePlayerAndDealerTotalScores(): void
++hit(): void
++stay(): void
++clearTheTable(): void
++printCardsOnGridPane(): void
++winsOrLose(): void
++dealTwoCards(): void
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
